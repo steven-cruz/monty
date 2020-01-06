@@ -6,7 +6,11 @@
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
-
+#define delim "\n\r\t "
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
+#define UNUSED(x) (void)(x)
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -66,10 +70,31 @@ extern vars gvars;
 
 
 /* prototypes */
-void push(stack_t **stack, unsigned int line_number);
-void pall(stack_t **stack, __attribute__((unused))unsigned int line_number);
+void op_push(stack_t **stack, unsigned int line_number);
+void op_pall(stack_t **stack, unsigned int line_number);
+void op_pint(stack_t **stack, unsigned int line_number);
+void op_pop(stack_t **stack, unsigned int line_number);
+void op_swap(stack_t **stack, unsigned int line_number);
+void op_add(stack_t **stack, unsigned int line_number);
+void op_nop(stack_t **stack, unsigned int line_number);
+void op_sub(stack_t **stack, unsigned int line_number);
+void op_mul(stack_t **stack, unsigned int line_number);
+void op_pchar(stack_t **stack, unsigned int line_number);
+void op_mod(stack_t **stack, unsigned int line_number);
+void op_div(stack_t **stack, unsigned int line_number);
+void op_pstr(stack_t **stack, unsigned int line_number);
+void op_rotl(stack_t **stack, unsigned int line_number);
+void op_rotr(stack_t **stack, unsigned int line_number);
+void op_queue(stack_t **stack, unsigned int line_number);
+void op_stack(stack_t **stack, unsigned int line_number);
+
 
 /* helper */
+void free_l(stack_t *head);
+int find_op(stack_t **head);
+int tokenizer(char *str);
 int check_val(char *str);
+int list_len(stack_t **h);
+int newline_check(char *str);
 
 #endif /* MONTY_H */
