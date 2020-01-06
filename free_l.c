@@ -1,8 +1,8 @@
 #include "monty.h"
 
 /**
- * free_l frees node
- * head: pointer to first node.
+ * free_l - frees node
+ * @head: pointer to first node.
  */
 void free_l(stack_t *head)
 {
