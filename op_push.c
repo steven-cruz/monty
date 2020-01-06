@@ -1,9 +1,9 @@
 #include "monty.h"
 
 /**
- * op_push - push value to stack.
- * @stack: pointer to stack.
- * @line_number: unused.
+ * op_push - push value to stack
+ * @stack: pointer to stack
+ * @line_number: unused
  */
 void op_push(stack_t **stack, unsigned int line_number)
 {
@@ -11,11 +11,10 @@ void op_push(stack_t **stack, unsigned int line_number)
 
 	if (new == NULL)
 	{
-		fprintf(stdout, "Error: malloc falied\n");
+		fprintf(stdout, "Error: malloc failed\n");
 		gvars.ret_val = -1;
 		return;
 	}
-
 	if (gvars.value == NULL || check_val(gvars.value) == -1)
 	{
 		fprintf(stdout, "L%d: usage: push integer\n", line_number);
